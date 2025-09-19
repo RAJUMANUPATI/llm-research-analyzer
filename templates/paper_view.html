@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ paper.title }}</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 2em; }
+        .container { max-width: 800px; margin: auto; }
+        .paper-title { font-size: 2em; margin-bottom: 0.5em; }
+        .section { margin-top: 2em; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 0.3em; }
+        /* MODIFIED STYLE FOR CLEAN FORMATTING */
+        .markdown-content {
+            background-color: #f4f4f4;
+            padding: 1em;
+            border-radius: 5px;
+            white-space: pre-wrap; /* This preserves line breaks */
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('index') }}">&larr; Back to all papers</a>
+        <h1 class="paper-title">{{ paper.title }}</h1>
+        <hr>
+
+        <div class="section">
+            <h2>📄 LLM-Generated Summary</h2>
+            <div class="markdown-content">
+                {{ paper.summary }}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧐 Research Gap Analysis</h2>
+            <div class="markdown-content">
+                {{ paper.research_gaps }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

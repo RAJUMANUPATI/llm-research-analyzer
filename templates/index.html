@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LLM Research Paper Analyzer</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        h1, h2 { color: #333; }
+        .container { max-width: 800px; margin: auto; }
+        .upload-form { margin-bottom: 2em; padding: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        .paper-list li { margin-bottom: 0.5em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LLM Research Paper Analyzer 📄</h1>
+        <div class="upload-form">
+            <h2>Upload a New Research Paper</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="paper" accept=".pdf" required>
+                <button type="submit">Upload & Analyze</button>
+            </form>
+        </div>
+
+        <h2>Processed Papers</h2>
+        <ul class="paper-list">
+            {% for paper in papers %}
+                <li><a href="{{ url_for('paper_view', paper_id=paper.id) }}">{{ paper.filename }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
